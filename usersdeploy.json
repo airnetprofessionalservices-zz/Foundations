@@ -72,6 +72,13 @@
        "description": "Bastion Subnet  Name"
      }
    },
+   "RecoveryServicesVaultName": {
+     "type": "string",
+     "defaultValue": "users-eastus",
+     "metadata": {
+       "description": "Recovery services vault for users subscription"
+     }
+   },
    "location": {
      "type": "string",
      "defaultValue": "[resourceGroup().location]",
@@ -145,6 +152,18 @@
            }
          }
        ]
+     }
+   },
+   {
+     "name": "[parameters('RecoveryServicesVaultName')]",
+     "type": "Microsoft.RecoveryServices/vaults",
+     "apiVersion": "2018-01-10",
+     "location": "[resourceGroup().location]",
+     "sku": {
+       "name": "RS0",
+       "tier": "Standard"
+     },
+     "properties": {
      }
    }
  ]
